@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+    <h1>Current Events</h1>
+
+    {% for event in all_events %}
+    <div>
+        <p>
+            {{event.date, event. event_name, event.num_guests, event.room_location, event.description}}
+        </p>
+    </div>
+    {% endfor %}
+
+    <h2> Add New Event</h2>
+    <form action="/all_events" method="post">
+        <ul>
+            <label for="date">Event Date</label>
+            <input type="text" name="date" id="date">
+
+            <label for="event_name">Event Name</label>
+            <input type="text" name="event_name" id="event_name">
+
+            <label for="num_guests">Number of Guests</label>
+            <input type="text" name="num_guests" id="num_guests">
+
+            <label for="room_location">Room Location</label>
+            <input type="text" name="room_location" id="room_location">
+
+            <label for="description">Event Description</label>
+            <textarea name="description" cols="30" rows="1"></textarea>
+            <input type="submit" value="submit">
+
+        </ul>
+
+    </form>
+
+
+
+
+</body>
+{% endblock%}
